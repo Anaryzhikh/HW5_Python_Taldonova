@@ -14,11 +14,11 @@
 # чтобы забрать все конфеты у своего конкурента?
 
 from random import *
-
+#
 # player1 = input('Введите имя Игрока 1: ')
 # player2 = input('Введите имя Игрока 2: ')
 # turn = bool(randint(0, 2))
-# candies = 50
+# candies = 2021
 #
 # while candies > 0:
 #     print('Осталось конфет:', candies)
@@ -30,6 +30,9 @@ from random import *
 #         candies -= player_turn
 #         turn = not turn
 #     else:
+#         if player_turn > 28:
+#             print('Вы взяли больше 28 конфет, возьмите меньше')
+#             continue
 #         candies -= int(input(f'Ход Игрока 2, {player2}: '))
 #         turn = not turn
 # if turn:
@@ -41,6 +44,8 @@ from random import *
 
 # a) Добавьте игру против бота
 
+# from random import *
+#
 # player1 = input('Введите имя Игрока 1: ')
 # print('Игрок 2 - БОТ')
 # turn = bool(randint(0, 2))
@@ -101,6 +106,7 @@ from random import *
 # print('Игра закончена')
 
 #3. Создайте программу для игры в ""Крестики-нолики"".
+# Честно скажу, игра была взята на просторах интернета, эта версия мне показалась самой понятной
 #
 # # Инициализация карты
 # maps = [1, 2, 3,
@@ -183,41 +189,41 @@ from random import *
 
 #4. Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 
-# with open('decoded.txt', 'r') as data:
-#     my_text = data.read()
-#
-# def encode_rle(ss):
-#     str_code = ''
-#     prev_char = ''
-#     count = 1
-#     for char in ss:
-#         if char != prev_char:
-#             if prev_char:
-#                 str_code += str(count) + prev_char
-#             count = 1
-#             prev_char = char
-#         else:
-#             count += 1
-#     return str_code
-#
-# str_code = encode_rle(my_text)
-# print('Изначальный текст:', my_text)
-# print('Закодированный текст:', str_code, '\n')
-#
-# with open('encoded.txt', 'r') as data:
-#     my_text2 = data.read()
-#
-# def decoding_rle(ss:str):
-#     count = ''
-#     str_decode = ''
-#     for char in ss:
-#         if char.isdigit():
-#             count += char
-#         else:
-#             str_decode += char * int(count)
-#             count = ''
-#     return str_decode
-#
-# str_decode = decoding_rle(my_text2)
-# print('Изначальный текст:', my_text2)
-# print('Раскодированный текст:', str_decode)
+with open('decoded.txt', 'r') as data:
+    my_text = data.read()
+
+def encode_rle(ss):
+    str_code = ''
+    prev_char = ''
+    count = 1
+    for char in ss:
+        if char != prev_char:
+            if prev_char:
+                str_code += str(count) + prev_char
+            count = 1
+            prev_char = char
+        else:
+            count += 1
+    return str_code
+
+str_code = encode_rle(my_text)
+print('Изначальный текст:', my_text)
+print('Закодированный текст:', str_code, '\n')
+
+with open('encoded.txt', 'r') as data:
+    my_text2 = data.read()
+
+def decoding_rle(ss:str):
+    count = ''
+    str_decode = ''
+    for char in ss:
+        if char.isdigit():
+            count += char
+        else:
+            str_decode += char * int(count)
+            count = ''
+    return str_decode
+
+str_decode = decoding_rle(my_text2)
+print('Изначальный текст:', my_text2)
+print('Раскодированный текст:', str_decode)
